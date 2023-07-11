@@ -1,6 +1,11 @@
 import React from 'react';
 
-export default function Form() {
+type Props = {
+  handleForm: (prop: boolean) => void
+};
+
+export default function Form(props: Props) {
+  const { handleForm } = props;
   return (
     <form>
       <label htmlFor="nome">
@@ -20,7 +25,7 @@ export default function Form() {
         <input id="URL" type="text" />
       </label>
       <button>Cadastrar</button>
-      <button>Cancelar</button>
+      <button onClick={ () => handleForm(false) }>Cancelar</button>
     </form>
   );
 }
