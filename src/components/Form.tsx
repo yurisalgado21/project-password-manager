@@ -14,6 +14,8 @@ export default function Form(props: Props) {
     url: '',
   });
   const [registerButton, setRegisterButton] = useState(true);
+  const displayInvalidPassword = 'invalid-password-check';
+  const displayValidPassword = 'valid-password-check';
 
   function handleChange(
     event: React.ChangeEvent<
@@ -96,6 +98,33 @@ export default function Form(props: Props) {
       </label>
       <button disabled={ registerButton }>Cadastrar</button>
       <button onClick={ () => handleForm(false) }>Cancelar</button>
+      <div>
+        <p
+          className={ formInfo.senha.length >= 8
+            ? displayValidPassword
+            : displayInvalidPassword }
+        >
+          Possuir 8 ou mais caracteres
+
+        </p>
+        <p
+          className={ formInfo.senha.length <= 16
+            ? displayValidPassword
+            : displayInvalidPassword }
+        >
+          Possuir até 16 caracteres
+
+        </p>
+        <p
+          className={ /[a-zA-Z]/.test(formInfo.senha) && /\d/.test(formInfo.senha)
+            ? displayValidPassword
+            : displayInvalidPassword }
+        >
+          Possuir letras e números
+
+        </p>
+        <p className={ /[!@#$%^&*]/.test(formInfo.senha) ? displayValidPassword : displayInvalidPassword }>Possuir algum caractere especial</p>
+      </div>
     </form>
   );
 }
