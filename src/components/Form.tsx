@@ -1,11 +1,19 @@
 import React, { useState } from 'react';
 
+type Service = {
+  name: string;
+  login: string;
+  senha: string;
+  url: string;
+};
+
 type Props = {
   handleForm: (prop: boolean) => void
+  handleServiceSubmit: (service: Service) => void;
 };
 
 export default function Form(props: Props) {
-  const { handleForm } = props;
+  const { handleForm, handleServiceSubmit } = props;
 
   const [formInfo, setFormInfo] = useState({
     name: '',
@@ -51,8 +59,13 @@ export default function Form(props: Props) {
     setRegisterButton(!formValidYOrN);
   }
 
+  function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
+    event.preventDefault();
+    handleServiceSubmit(formInfo);
+  }
+
   return (
-    <form>
+    <form onSubmit={ handleSubmit }>
       <label htmlFor="name">
         Nome do serviço
         <input
