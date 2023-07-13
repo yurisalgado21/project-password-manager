@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import Swal from 'sweetalert2';
 
 type Service = {
   name: string;
@@ -74,6 +75,11 @@ export default function Form(props: Props) {
   function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
     handleServiceSubmit(formInfo);
+    Swal.fire({
+      icon: 'success',
+      title: 'Serviço cadastrado com sucesso',
+      timer: 1500,
+    });
   }
 
   return (
