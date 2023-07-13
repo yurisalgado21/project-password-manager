@@ -52,18 +52,20 @@ function App() {
               </a>
               <br />
               <span>
-                Login:
-                {' '}
                 {service.login}
               </span>
               <br />
               <span>
-                Senha:
-                {' '}
                 {service.senha}
               </span>
               <br />
-              <button onClick={ () => handleServiceDelete(index) }>Excluir</button>
+              <button
+                data-testid="remove-btn"
+                onClick={ () => handleServiceDelete(index) }
+              >
+                Excluir
+
+              </button>
               <hr />
             </li>
           ))}
