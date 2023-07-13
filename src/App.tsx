@@ -14,6 +14,15 @@ function App() {
   const [showForm, setShowForm] = useState(false);
   const [hiddenButton, setHiddenButton] = useState(false);
   const [services, setServices] = useState<Service[]>([]);
+  const [checkedPassword, setCheckedPassword] = useState(false);
+
+  function handleChecked() {
+    if (!checkedPassword) {
+      setCheckedPassword(true);
+    } else {
+      setCheckedPassword(false);
+    }
+  }
 
   function handleForm(prop: boolean) {
     setShowForm(prop);
@@ -45,6 +54,14 @@ function App() {
         <p>Nenhuma senha cadastrada</p>
       ) : (
         <ul>
+          <label>
+            Esconder senhas
+            <input
+              type="checkbox"
+              checked={ checkedPassword }
+              onChange={ handleChecked }
+            />
+          </label>
           {services.map((service, index) => (
             <li key={ index }>
               <a href={ service.url } target="_blank" rel="noopener noreferrer">
@@ -56,7 +73,7 @@ function App() {
               </span>
               <br />
               <span>
-                {service.senha}
+                {checkedPassword ? (service.senha.replace(/./g, '*')) : service.senha}
               </span>
               <br />
               <button
