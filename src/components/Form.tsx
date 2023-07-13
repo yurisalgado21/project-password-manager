@@ -24,6 +24,18 @@ export default function Form(props: Props) {
   const [registerButton, setRegisterButton] = useState(true);
   const displayInvalidPassword = 'invalid-password-check';
   const displayValidPassword = 'valid-password-check';
+  const [hideOrShow, setHideOrShow] = useState(false);
+  const [changehidePassword, setChangehidePassword] = useState('password');
+
+  function hidePasswordOrShow() {
+    if (hideOrShow === false) {
+      setHideOrShow(true);
+      setChangehidePassword('text');
+    } else {
+      setHideOrShow(false);
+      setChangehidePassword('password');
+    }
+  }
 
   function handleChange(
     event: React.ChangeEvent<
@@ -66,6 +78,13 @@ export default function Form(props: Props) {
 
   return (
     <form onSubmit={ handleSubmit }>
+      <button
+        data-testid="show-hide-form-password"
+        onClick={ hidePasswordOrShow }
+      >
+        Hide/Show
+
+      </button>
       <label htmlFor="name">
         Nome do serviço
         <input
@@ -92,7 +111,7 @@ export default function Form(props: Props) {
         Senha
         <input
           id="senha"
-          type="password"
+          type={ changehidePassword }
           name="senha"
           value={ formInfo.senha }
           onChange={ handleChange }
