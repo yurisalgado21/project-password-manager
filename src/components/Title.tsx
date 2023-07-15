@@ -2,6 +2,6 @@ import React from 'react';
 
 export default function Title() {
   return (
-    <h1>Gerenciador de senhas</h1>
+    <h1 className="title">Gerenciador de senhas</h1>
   );
 }

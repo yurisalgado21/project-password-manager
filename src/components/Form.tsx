@@ -83,14 +83,7 @@ export default function Form(props: Props) {
   }
 
   return (
-    <form onSubmit={ handleSubmit }>
-      <button
-        data-testid="show-hide-form-password"
-        onClick={ hidePasswordOrShow }
-      >
-        Hide/Show
-
-      </button>
+    <form className="form" onSubmit={ handleSubmit }>
       <label htmlFor="name">
         Nome do serviço
         <input
@@ -113,6 +106,13 @@ export default function Form(props: Props) {
           required
         />
       </label>
+      <button
+        data-testid="show-hide-form-password"
+        onClick={ hidePasswordOrShow }
+      >
+        Hide/Show
+
+      </button>
       <label htmlFor="senha">
         Senha
         <input
@@ -136,7 +136,7 @@ export default function Form(props: Props) {
       </label>
       <button disabled={ registerButton }>Cadastrar</button>
       <button onClick={ () => handleForm(false) }>Cancelar</button>
-      <div>
+      <div id="display">
         <p
           className={ formInfo.senha.length >= 8
             ? displayValidPassword

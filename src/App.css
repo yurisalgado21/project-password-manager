@@ -1,7 +1,46 @@
+@import url('https://fonts.googleapis.com/css2?family=Pangolin&display=swap');
+
+* {
+  text-align: center;
+  font-family: 'Pangolin', cursive;
+}
+
+body {
+  background-color: blueviolet;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  grid-template-columns: 1fr 1fr; /* Divide o espaço em duas colunas iguais */
+  grid-gap: 15px;
+  max-width: 660px; /* Defina um valor adequado para a largura máxima */
+  margin: 0 auto;
+  border-radius: 15px;
+  background-color: rgb(148, 59, 231);
+}
+
+label {
+  width: 185px;
+}
+
+.title {
+  padding: 30px;
+  max-width: 600px; /* Defina um valor adequado para a largura máxima */
+  margin: 0 auto;
+  border-radius: 15px;
+  background-color: rgb(148, 59, 231);
+}
+
 .valid-password-check {
   color: #aeffb6;
 }
 
 .invalid-password-check {
   color: #f58989;
+}
+
+hr {
+  border: none;
 }
