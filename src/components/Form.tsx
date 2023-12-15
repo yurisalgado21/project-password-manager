@@ -72,7 +72,7 @@ export default function Form(props: Props) {
     setRegisterButton(!formValidYOrN);
   }
 
-  function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
+  function handleSubmit(validateLoginevent: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
     handleServiceSubmit(formInfo);
     Swal.fire({
@@ -103,7 +103,7 @@ export default function Form(props: Props) {
           name="login"
           value={ formInfo.login }
           onChange={ handleChange }
-          required
+          requiredvalidateLogin
         />
       </label>
       <button

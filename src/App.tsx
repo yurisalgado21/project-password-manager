@@ -1,8 +1,8 @@
 import { useState } from 'react';
 import './App.css';
-import Swal from 'sweetalert2';
 import Form from './components/Form';
 import Title from './components/Title';
+import ThemeButton from './components/ThemeButton';
 
 type Service = {
   name: string;
@@ -12,10 +12,15 @@ type Service = {
 };
 
 function App() {
+  const [theme, setTheme] = useState(true);
   const [showForm, setShowForm] = useState(false);
   const [hiddenButton, setHiddenButton] = useState(false);
   const [services, setServices] = useState<Service[]>([]);
   const [checkedPassword, setCheckedPassword] = useState(false);
+
+  const changeTheme = () => {
+    setTheme(!theme);
+  };
 
   function handleChecked() {
     if (!checkedPassword) {
@@ -42,7 +47,8 @@ function App() {
   }
 
   return (
-    <div>
+    <div className={ theme ? 'dark-mode' : 'light-mode' }>
+      <ThemeButton state={ theme } event={ changeTheme } />
       <Title />
       {!hiddenButton
       && <button onClick={ () => handleForm(true) }>Cadastrar nova senha</button>}
@@ -54,7 +60,7 @@ function App() {
       {services.length === 0 ? (
         <p>Nenhuma senha cadastrada</p>
       ) : (
-        <ul>
+        <ul id="id-ul-user">
           <label>
             Esconder senhas
             <input

@@ -1,21 +1,27 @@
-@import url('https://fonts.googleapis.com/css2?family=Pangolin&display=swap');
+@import url( 'https://fonts.googleapis.com/css2?family=Pangolin&display=swap');
 
 * {
   text-align: center;
-  font-family: 'Pangolin', cursive;
+  font-family: "Pangolin", cursive;
+  transition: all 0.3s;
 }
 
-body {
-  background-color: blueviolet;
+body, .dark-mode {
+  background-color: #0e0e0e;
+}
+
+body, .light-mode {
+  background-color: #fefefe;
+  color: #333;
 }
 
 .form {
   display: flex;
   flex-direction: column;
   align-items: center;
-  grid-template-columns: 1fr 1fr; /* Divide o espaço em duas colunas iguais */
+  grid-template-columns: 1fr 1fr;
   grid-gap: 15px;
-  max-width: 660px; /* Defina um valor adequado para a largura máxima */
+  max-width: 660px;
   margin: 0 auto;
   border-radius: 15px;
   background-color: rgb(148, 59, 231);
@@ -27,7 +33,7 @@ label {
 
 .title {
   padding: 30px;
-  max-width: 600px; /* Defina um valor adequado para a largura máxima */
+  max-width: 600px;
   margin: 0 auto;
   border-radius: 15px;
   background-color: rgb(148, 59, 231);
@@ -43,4 +49,12 @@ label {
 
 hr {
   border: none;
+}
+
+#id-ul-user {
+  padding: 30px;
+  max-width: 600px;
+  margin: 0 auto;
+  border-radius: 15px;
+  background-color: rgb(148, 59, 231);
 }
